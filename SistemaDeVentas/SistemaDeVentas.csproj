@@ -31,8 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,14 +57,172 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BLL\ClientesBLL.cs" />
+    <Compile Include="BLL\EntradaRopasBLL.cs" />
+    <Compile Include="BLL\FacturasBLL.cs" />
+    <Compile Include="BLL\RopasBLL.cs" />
+    <Compile Include="BLL\UsuariosBLL.cs" />
+    <Compile Include="DAL\Contexto.cs" />
+    <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\Repositorio.cs" />
+    <Compile Include="Entidades\Clientes.cs" />
+    <Compile Include="Entidades\EntradaRopas.cs" />
+    <Compile Include="Entidades\Facturas.cs" />
+    <Compile Include="Entidades\FacturaDetalle.cs" />
+    <Compile Include="Entidades\Ropas.cs" />
+    <Compile Include="Entidades\Usuarios.cs" />
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Consultas\cClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cClientes.Designer.cs">
+      <DependentUpon>cClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cEntradaRopas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cEntradaRopas.Designer.cs">
+      <DependentUpon>cEntradaRopas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cFacturas.Designer.cs">
+      <DependentUpon>cFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cRopas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cRopas.Designer.cs">
+      <DependentUpon>cRopas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cUsuarios.Designer.cs">
+      <DependentUpon>cUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rClientes.Designer.cs">
+      <DependentUpon>rClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rEntradaRopas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rEntradaRopas.Designer.cs">
+      <DependentUpon>rEntradaRopas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rFacturas.Designer.cs">
+      <DependentUpon>rFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rRopas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rRopas.Designer.cs">
+      <DependentUpon>rRopas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rUsuarios.Designer.cs">
+      <DependentUpon>rUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteDeClientes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDeClientes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteDeFacturaDetalle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDeFacturaDetalle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportesDeEntradaRopas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportesDeEntradaRopas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportesDeFacturas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportesDeFacturas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportesDeRopas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportesDeRopas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportesDeUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportesDeUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VentanasReportes\ClientesReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanasReportes\ClientesReportes.Designer.cs">
+      <DependentUpon>ClientesReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanasReportes\EntradaRopasReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanasReportes\EntradaRopasReportes.Designer.cs">
+      <DependentUpon>EntradaRopasReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanasReportes\FacturaDetalleReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanasReportes\FacturaDetalleReportes.Designer.cs">
+      <DependentUpon>FacturaDetalleReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanasReportes\FacturasReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanasReportes\FacturasReportes.Designer.cs">
+      <DependentUpon>FacturasReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanasReportes\RopasReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanasReportes\RopasReportes.Designer.cs">
+      <DependentUpon>RopasReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanasReportes\UsuariosReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanasReportes\UsuariosReportes.Designer.cs">
+      <DependentUpon>UsuariosReportes.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -59,7 +231,82 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Consultas\cClientes.resx">
+      <DependentUpon>cClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\cEntradaRopas.resx">
+      <DependentUpon>cEntradaRopas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\cFacturas.resx">
+      <DependentUpon>cFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\cRopas.resx">
+      <DependentUpon>cRopas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\cUsuarios.resx">
+      <DependentUpon>cUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rClientes.resx">
+      <DependentUpon>rClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rEntradaRopas.resx">
+      <DependentUpon>rEntradaRopas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rFacturas.resx">
+      <DependentUpon>rFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rRopas.resx">
+      <DependentUpon>rRopas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rUsuarios.resx">
+      <DependentUpon>rUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReporteDeClientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteDeClientes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReporteDeFacturaDetalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteDeFacturaDetalle.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReportesDeEntradaRopas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportesDeEntradaRopas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReportesDeFacturas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportesDeFacturas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReportesDeRopas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportesDeRopas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReportesDeUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportesDeUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanasReportes\ClientesReportes.resx">
+      <DependentUpon>ClientesReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanasReportes\EntradaRopasReportes.resx">
+      <DependentUpon>EntradaRopasReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanasReportes\FacturaDetalleReportes.resx">
+      <DependentUpon>FacturaDetalleReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanasReportes\FacturasReportes.resx">
+      <DependentUpon>FacturasReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanasReportes\RopasReportes.resx">
+      <DependentUpon>RopasReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanasReportes\UsuariosReportes.resx">
+      <DependentUpon>UsuariosReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,6 +316,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8_Add_File_161.png" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\ropas.jpg" />
+    <None Include="Resources\photo.jpg" />
+    <None Include="Resources\icons8_Delete_Document_32.png" />
+    <None Include="Resources\icons8_Save_as_32.png" />
+    <None Include="Resources\icons8_Add_Property_32.png" />
+    <None Include="Resources\Registro Cliente.jpg" />
+    <None Include="Resources\icons8_Delete_Document_16.png" />
+    <None Include="Resources\icons8_Save_as_16.png" />
+    <None Include="Resources\icons8_Add_File_16.png" />
+    <None Include="Resources\icons8_Search_Property_16.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\icons8_Lock_32.png" />
+    <None Include="Resources\595d28b49c63372473d313967a3f2ce6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\Scripts\script.sql" />
+    <None Include="Resources\icons8_Search_Property_32.png" />
+    <None Include="Resources\icons8_Print_321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
