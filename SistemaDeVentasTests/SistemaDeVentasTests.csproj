@@ -66,6 +66,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{6a46c448-8fcb-43c4-b0d5-02681f20e065}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{bec9e595-3a67-4180-ab54-7c034bc8fac4}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SistemaDeVentas\SistemaDeVentas.csproj">
       <Project>{472501B4-D549-4787-BC33-B26C41FCDA00}</Project>
       <Name>SistemaDeVentas</Name>

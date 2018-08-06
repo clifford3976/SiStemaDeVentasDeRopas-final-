@@ -57,20 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\ClientesBLL.cs" />
-    <Compile Include="BLL\EntradaRopasBLL.cs" />
-    <Compile Include="BLL\FacturasBLL.cs" />
-    <Compile Include="BLL\RopasBLL.cs" />
-    <Compile Include="BLL\UsuariosBLL.cs" />
-    <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="DAL\IRepository.cs" />
-    <Compile Include="DAL\Repositorio.cs" />
-    <Compile Include="Entidades\Clientes.cs" />
-    <Compile Include="Entidades\EntradaRopas.cs" />
-    <Compile Include="Entidades\Facturas.cs" />
-    <Compile Include="Entidades\FacturaDetalle.cs" />
-    <Compile Include="Entidades\Ropas.cs" />
-    <Compile Include="Entidades\Usuarios.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,7 +303,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{6a46c448-8fcb-43c4-b0d5-02681f20e065}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{32dd31e9-0d05-43d5-8346-0241cd134901}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{bec9e595-3a67-4180-ab54-7c034bc8fac4}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_Add_File_161.png" />
     <None Include="Resources\images.jpg" />
@@ -339,7 +338,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\Scripts\script.sql" />
     <None Include="Resources\icons8_Search_Property_32.png" />
     <None Include="Resources\icons8_Print_321.png" />
   </ItemGroup>

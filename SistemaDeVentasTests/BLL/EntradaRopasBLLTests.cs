@@ -1,11 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SistemaDeVentas.BLL;
-using SistemaDeVentas.DAL;
-using SistemaDeVentas.Entidades;
+﻿using BLL;
+using Entidades;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace SistemaDeVentas.BLL.Tests
 {

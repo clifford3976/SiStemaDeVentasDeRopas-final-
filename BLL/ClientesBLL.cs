@@ -1,17 +1,17 @@
-﻿using SistemaDeVentas.DAL;
-using SistemaDeVentas.Entidades;
+﻿using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace SistemaDeVentas.BLL
+
+namespace BLL
 {
-    public class UsuariosBLL
+    public class ClientesBLL
     {
-        public static bool Guardar(Usuarios Usuario)
+        public static bool Guardar(Clientes Cliente)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -19,7 +19,7 @@ namespace SistemaDeVentas.BLL
             try
             {
 
-                if (contexto.Usuario.Add(Usuario) != null)
+                if (contexto.Cliente.Add(Cliente) != null)
                 {
                     contexto.SaveChanges();
                     paso = true;
@@ -44,11 +44,11 @@ namespace SistemaDeVentas.BLL
 
             try
             {
-                Usuarios Usuario = contexto.Usuario.Find(id);
+                Clientes Cliente = contexto.Cliente.Find(id);
 
-                if (Usuario != null)
+                if (Cliente != null)
                 {
-                    contexto.Entry(Usuario).State = EntityState.Deleted;
+                    contexto.Entry(Cliente).State = EntityState.Deleted;
                 }
 
                 if (contexto.SaveChanges() > 0)
@@ -69,7 +69,7 @@ namespace SistemaDeVentas.BLL
 
 
 
-        public static bool Modificar(Usuarios Usuario)
+        public static bool Modificar(Clientes Cliente)
         {
 
             bool paso = false;
@@ -77,7 +77,7 @@ namespace SistemaDeVentas.BLL
 
             try
             {
-                contexto.Entry(Usuario).State = EntityState.Modified;
+                contexto.Entry(Cliente).State = EntityState.Modified;
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -96,35 +96,35 @@ namespace SistemaDeVentas.BLL
 
 
 
-        public static Usuarios Buscar(int id)
+        public static Clientes Buscar(int id)
         {
 
-            Usuarios Usuario = new Usuarios();
+            Clientes Cliente = new Clientes();
             Contexto contexto = new Contexto();
 
             try
             {
-                Usuario = contexto.Usuario.Find(id);
+                Cliente = contexto.Cliente.Find(id);
                 contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return Usuario;
+            return Cliente;
 
         }
 
 
 
-        public static List<Usuarios> GetList(Expression<Func<Usuarios, bool>> expression)
+        public static List<Clientes> GetList(Expression<Func<Clientes, bool>> expression)
         {
-            List<Usuarios> Usuario = new List<Usuarios>();
+            List<Clientes> Cliente = new List<Clientes>();
             Contexto contexto = new Contexto();
 
             try
             {
-                Usuario = contexto.Usuario.Where(expression).ToList();
+                Cliente = contexto.Cliente.Where(expression).ToList();
                 contexto.Dispose();
 
             }
@@ -132,7 +132,7 @@ namespace SistemaDeVentas.BLL
             {
                 throw;
             }
-            return Usuario;
+            return Cliente;
         }
     }
 }

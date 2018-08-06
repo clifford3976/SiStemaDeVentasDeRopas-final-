@@ -1,13 +1,10 @@
-﻿using SistemaDeVentas.Entidades;
+﻿
+using Entidades;
 using SistemaDeVentas.VentanasReportes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SistemaDeVentas.UI.Consultas
@@ -85,7 +82,7 @@ namespace SistemaDeVentas.UI.Consultas
                         MessageBox.Show("Favor Llenar Casilla ", "Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    if (Validar(2))
+                    if (Validar(3))
                     {
                         MessageBox.Show("Debe Digitar un nombre de usuario!", "Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;

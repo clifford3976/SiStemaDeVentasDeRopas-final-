@@ -363,7 +363,7 @@
             this.RecibidotextBox.Location = new System.Drawing.Point(159, 478);
             this.RecibidotextBox.Name = "RecibidotextBox";
             this.RecibidotextBox.Size = new System.Drawing.Size(120, 20);
-            
+            this.RecibidotextBox.TabIndex = 0;
             // 
             // rFacturas
             // 
@@ -406,7 +406,6 @@
             this.MinimumSize = new System.Drawing.Size(930, 549);
             this.Name = "rFacturas";
             this.Text = "Registro de Factura";
-          
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();

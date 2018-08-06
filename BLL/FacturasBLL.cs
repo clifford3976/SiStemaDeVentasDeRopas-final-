@@ -1,13 +1,13 @@
-﻿using SistemaDeVentas.DAL;
-using SistemaDeVentas.Entidades;
+﻿using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace SistemaDeVentas.BLL
+
+namespace BLL
 {
     public class FacturasBLL
     {
@@ -131,7 +131,7 @@ namespace SistemaDeVentas.BLL
 
             try
             {
-                var factura = BLL.FacturasBLL.Buscar(Factura.FacturaId);
+                var factura = FacturasBLL.Buscar(Factura.FacturaId);
 
 
                 if (factura != null)
@@ -172,7 +172,7 @@ namespace SistemaDeVentas.BLL
 
 
 
-                    Facturas Anterior = BLL.FacturasBLL.Buscar(Factura.FacturaId);
+                    Facturas Anterior = FacturasBLL.Buscar(Factura.FacturaId);
 
 
                     //identificar la diferencia ya sea restada o sumada
@@ -181,9 +181,9 @@ namespace SistemaDeVentas.BLL
                     diferencia = Factura.Devuelta - Anterior.Devuelta;
 
                     //aplicar diferencia al inventario
-                    Clientes Cliente = BLL.ClientesBLL.Buscar(Factura.ClienteId);
+                    Clientes Cliente = ClientesBLL.Buscar(Factura.ClienteId);
                     Cliente.Devuelta += diferencia;
-                    BLL.ClientesBLL.Modificar(Cliente);
+                    ClientesBLL.Modificar(Cliente);
 
 
 

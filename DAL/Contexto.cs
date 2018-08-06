@@ -1,11 +1,7 @@
-﻿using SistemaDeVentas.Entidades;
-using System;
-using System.Collections.Generic;
+﻿using Entidades;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
 
-namespace SistemaDeVentas.DAL
+namespace DAL
 {
     public class Contexto : DbContext
     {

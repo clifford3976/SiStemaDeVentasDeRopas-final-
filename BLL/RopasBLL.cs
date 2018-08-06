@@ -1,17 +1,18 @@
-﻿using SistemaDeVentas.DAL;
-using SistemaDeVentas.Entidades;
+﻿
+using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace SistemaDeVentas.BLL
+
+namespace BLL
 {
-    public class ClientesBLL
+    public class RopasBLL
     {
-        public static bool Guardar(Clientes Cliente)
+        public static bool Guardar(Ropas Ropa)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -19,7 +20,7 @@ namespace SistemaDeVentas.BLL
             try
             {
 
-                if (contexto.Cliente.Add(Cliente) != null)
+                if (contexto.Ropa.Add(Ropa) != null)
                 {
                     contexto.SaveChanges();
                     paso = true;
@@ -36,6 +37,7 @@ namespace SistemaDeVentas.BLL
         }
 
 
+
         public static bool Eliminar(int id)
         {
 
@@ -44,19 +46,18 @@ namespace SistemaDeVentas.BLL
 
             try
             {
-                Clientes Cliente = contexto.Cliente.Find(id);
+                Ropas Ropa = contexto.Ropa.Find(id);
 
-                if (Cliente != null)
+                if (Ropa != null)
                 {
-                    contexto.Entry(Cliente).State = EntityState.Deleted;
+                    contexto.Entry(Ropa).State = EntityState.Deleted;
                 }
-
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
                     contexto.Dispose();
-                }
 
+                }
 
             }
             catch (Exception)
@@ -69,7 +70,7 @@ namespace SistemaDeVentas.BLL
 
 
 
-        public static bool Modificar(Clientes Cliente)
+        public static bool Modificar(Ropas Ropa)
         {
 
             bool paso = false;
@@ -77,7 +78,7 @@ namespace SistemaDeVentas.BLL
 
             try
             {
-                contexto.Entry(Cliente).State = EntityState.Modified;
+                contexto.Entry(Ropa).State = EntityState.Modified;
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -96,35 +97,35 @@ namespace SistemaDeVentas.BLL
 
 
 
-        public static Clientes Buscar(int id)
+        public static Ropas Buscar(int id)
         {
 
-            Clientes Cliente = new Clientes();
+            Ropas Ropa = new Ropas();
             Contexto contexto = new Contexto();
 
             try
             {
-                Cliente = contexto.Cliente.Find(id);
+                Ropa = contexto.Ropa.Find(id);
                 contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return Cliente;
+            return Ropa;
 
         }
 
 
 
-        public static List<Clientes> GetList(Expression<Func<Clientes, bool>> expression)
+        public static List<Ropas> GetList(Expression<Func<Ropas, bool>> expression)
         {
-            List<Clientes> Cliente = new List<Clientes>();
+            List<Ropas> Ropa = new List<Ropas>();
             Contexto contexto = new Contexto();
 
             try
             {
-                Cliente = contexto.Cliente.Where(expression).ToList();
+                Ropa = contexto.Ropa.Where(expression).ToList();
                 contexto.Dispose();
 
             }
@@ -132,7 +133,21 @@ namespace SistemaDeVentas.BLL
             {
                 throw;
             }
-            return Cliente;
+            return Ropa;
         }
+
+       public static string RetornarDescripcion(string nombre)
+        {
+            string descripcion = string.Empty;
+            var lista = GetList(x => x.Descripcion.Equals(nombre));
+            foreach (var item in lista)
+            {
+                descripcion = item.Descripcion;
+            }
+
+            return descripcion;
+        }
+
+
     }
 }

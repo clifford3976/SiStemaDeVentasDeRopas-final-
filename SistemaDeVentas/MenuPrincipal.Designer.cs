@@ -80,35 +80,35 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // ropasToolStripMenuItem
             // 
             this.ropasToolStripMenuItem.Name = "ropasToolStripMenuItem";
-            this.ropasToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.ropasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ropasToolStripMenuItem.Text = "Ropas";
             this.ropasToolStripMenuItem.Click += new System.EventHandler(this.ropasToolStripMenuItem_Click);
             // 
             // entradaRopasToolStripMenuItem
             // 
             this.entradaRopasToolStripMenuItem.Name = "entradaRopasToolStripMenuItem";
-            this.entradaRopasToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.entradaRopasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.entradaRopasToolStripMenuItem.Text = "EntradaRopas";
             this.entradaRopasToolStripMenuItem.Click += new System.EventHandler(this.entradaRopasToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // facturasToolStripMenuItem
             // 
             this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
-            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.facturasToolStripMenuItem.Text = "Facturas";
             this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
             // 
@@ -172,6 +172,7 @@
             this.BackgroundImage = global::SistemaDeVentas.Properties.Resources.menu;
             this.ClientSize = new System.Drawing.Size(691, 479);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
